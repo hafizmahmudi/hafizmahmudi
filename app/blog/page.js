@@ -59,7 +59,7 @@ const page = () => {
             <div className="top-info">
               <div className="text">
                 <h1 className="main-title">
-                  My Recent Article and Publications
+                  Mahmudi's Article and Publications
                 </h1>
                 <p>
                   I'm here to help if you're searching for a product designer to

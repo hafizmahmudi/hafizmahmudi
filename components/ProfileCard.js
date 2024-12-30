@@ -21,7 +21,7 @@ const ProfileCard = () => {
   const socialItems = [
     { id: 1, url: "#", name: "Facebook", icon: "fab fa-facebook" },
     { id: 2, url: "#", name: "Pinterest", icon: "fab fa-pinterest" },
-    { id: 3, url: "#", name: "Github", icon: "fab fa-github" },
+    { id: 3, url: "https://github.com/hafizmahmudi", name: "Github", icon: "fab fa-github" },
     { id: 4, url: "#", name: "Youtube", icon: "fab fa-youtube" },
   ];
 
@@ -29,14 +29,14 @@ const ProfileCard = () => {
     <div className="card profile-card">
       <div className="card-body">
         <div className="image text-center">
-          <img src="assets/img/images/profile.png" alt="profile" />
+          <img src="assets/img/images/profile.png" width={350} height={400} alt="profile" />
         </div>
         <div className="text">
-          <h3 className="card-title">Cris Rayaan 👋</h3>
+          <h3 className="card-title">Hafizullah Mahmudi 👋</h3>
           <p>
-            A Passionate <span>Full Stack Developer</span> 🖥️ &amp;{" "}
-            <span>Product Designer</span> having <span>12 years</span> of
-            Experiences over 24+ Country Worldwide.
+            A Passionate <span>Data Professional</span> 🖥️ &amp;{" "}
+            <span> and Software Developer</span> having <span>15+ years</span> of
+            Experiences.
           </p>
           <div className="common-button-groups">
             <a className="btn btn-call" href="#">
@@ -74,7 +74,7 @@ const ProfileCard = () => {
             </a>
             <button
               className={`btn btn-copy ${toggle ? "active" : ""}`}
-              data-clipboard-text="example@example.com"
+              data-clipboard-text="hafiz@example.com"
               onClick={() => toggleBtn()}
             >
               <svg
@@ -105,7 +105,7 @@ const ProfileCard = () => {
             <ul className="list-unstyled">
               {socialItems.map((item) => (
                 <li key={item.id}>
-                  <a href={item.href}>
+                  <a href={item.url}>
                     <i className={item.icon} />
                   </a>{" "}
                 </li>

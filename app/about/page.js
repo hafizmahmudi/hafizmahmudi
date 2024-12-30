@@ -1,18 +1,29 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Awards from "@/components/Awards";
 import BlogSlider from "@/components/Blog";
 import Brands from "@/components/Brands";
 import Testimonial from "@/components/Testimonial";
 import WorkTogether from "@/components/WorkTogether";
 import BentoFolioLayout from "@/layout/BentoFolioLayout";
-const page = () => {
+
+const Page = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const counterItems = [
     { id: 1, title: "Year of Experience", value: 40 },
     { id: 2, title: "Project Completed", value: 86 },
     { id: 3, title: "Happy Client", value: 72 },
   ];
+
   const about = {
-    name: "Cris Rayaan",
-    bio: " A Passionate <b>Full Stack Developer</b> 🖥️ &amp; <b>Product Designer</b> having <b>12 years </b> of Experiences over 24+ Country Worldwide.",
+    name: "Hafizullah Mahmudi",
+    bio: "<p><strong>Hafizullah Mahmudi </strong>is a results-oriented <strong>Data Consultant</strong> and experienced <strong>Developer</strong> with a proven foundation in designing, building, and optimizing data-driven solutions. With over <strong>12 years</strong> of diverse experience, he has successfully led the development, implementation, and improvement of advanced data collection, processing, integration, and visualization tools to drive quality in various business domains.</p><p><br></p><p>💻 <strong>Technical Expertise</strong>:</p><ul><li>📂 <strong>Databases &amp; Integration</strong>: Microsoft Access, MS SQL Server, PostgreSQL, SSIS, SSRS</li><li>📈 <strong>Business Intelligence &amp; Analytics</strong>: Data Warehousing, Power BI, DAX</li><li>🖥 <strong>Software Development</strong>: ASP.NET Core Framework, MVC, C#, VBA</li><li>📊 <strong>Data Visualization &amp; Reporting</strong>: Advanced dashboards, interactive reporting tools</li></ul><p><br></p><p>🤝 <strong>Soft Skills</strong>:</p><ul><li><strong>Collaboration</strong>: Effective team coordination to achieve project success</li><li><strong>Innovation</strong>: Creative problem-solving to address complex challenges</li></ul>",
   };
 
   return (
@@ -21,75 +32,21 @@ const page = () => {
         <div className="card content-box-card">
           <div className="card-body">
             <div className="top-info">
-              <div className="text">
+              <div className="text" style={{ width: '100%!important',boxSizing: 'border-box' ,display:'block'}}>
                 <h1 className="main-title">
                   Hi, This Is <span>{about.name}</span> 👋
                 </h1>
-                <p dangerouslySetInnerHTML={{ __html: about.bio }}></p>
+                {isClient && (
+                  <p style={{fontSize:'18px',width: '100%',boxSizing: 'border-box', display:'block'}} dangerouslySetInnerHTML={{ __html: about.bio }}></p>
+                )}
               </div>
-              <div className="available-btn">
-                <span>
-                  <i className="fas fa-circle" /> Available For Hire
-                </span>
-              </div>
+
             </div>
-            <div className="counter-area">
-              <div className="counter">
-                {counterItems.map((item) => (
-                  <div className="counter-item" key={item.id}>
-                    <h3 className="number">{item.value}+</h3>
-                    <p className="subtitle">{item.title}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="circle-area">
-                <div className="circle-text">
-                  <img
-                    className="circle-image"
-                    src="assets/img/about-us/circle-text.svg"
-                    alt="circle-text"
-                  />
-                  <img
-                    className="circle-image circle-image-light d-none"
-                    src="assets/img/about-us/circle-text-light.svg"
-                    alt="circle-text"
-                  />
-                  <span className="arrow-down">
-                    <svg
-                      width={40}
-                      height={40}
-                      viewBox="0 0 40 40"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M20 5V35"
-                        stroke="white"
-                        strokeWidth={2}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M15 30L20 35L25 30"
-                        stroke="white"
-                        strokeWidth={2}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <Brands />
-            <Testimonial />
-            <Awards />
-            <BlogSlider />
-            <WorkTogether />
           </div>
         </div>
       </div>
     </BentoFolioLayout>
   );
 };
-export default page;
+
+export default Page;
